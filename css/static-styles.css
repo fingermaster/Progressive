@@ -1,0 +1,30 @@
+
+
+
+@-webkit-keyframes scheduleScroll {
+  100% {
+    transform: translate(0, -460px);
+  }
+}
+@-moz-keyframes scheduleScroll {
+  100% {
+    transform: translate(0, -460px);
+  }
+}
+@-o-keyframes scheduleScroll {
+  100% {
+    transform: translate(0, -460px);
+  }
+}
+@keyframes scheduleScroll {
+  100% {
+    transform: translate(0, -460px);
+  }
+}
+.schedule-top {
+  transform: translateY(0);
+  -webkit-animation: scheduleScroll .7s ease 1;
+  -moz-animation: scheduleScroll .7s ease 1;
+  -o-animation: scheduleScroll .7s ease 1;
+  animation: scheduleScroll .7s ease 1;
+}

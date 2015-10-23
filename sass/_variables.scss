@@ -1,0 +1,73 @@
+// Aspect brand colors 
+  //Primary
+$pri-color-1: #8FD400; // logo green
+$pri-color-1-rgb: 143, 212, 0, 1;
+$pri-color-1-hover: darken($pri-color-1, 5%);
+$pri-color-1-press: darken($pri-color-1, 10%);
+$pri-color-1-border: darken($pri-color-1, 10%);
+$pri-color-1-light: lighten($pri-color-1, 40%);
+
+$pri-color-2: #000000; // black
+$pri-color-3: #838281; // cool gray
+
+$tmp: #000000;
+  //Secondary
+$sec-color-1: #FF5B35; // pink-ish
+$sec-color-1-blend: darken($sec-color-1, 10%);
+$sec-color-1-lt-blend: lighten($sec-color-1, 10%);
+$sec-color-1-rgb: 255, 91, 53, 1;
+$sec-color-1-hover: darken($sec-color-1, 10%);
+$sec-color-1-press: darken($sec-color-1, 20%);
+$sec-color-1-border: darken($sec-color-1, 20%);
+
+
+$sec-color-2: #00ADEF; // cyan - blue-ish
+$sec-color-2-rgb: 0, 173, 239, 1;
+$sec-color-2-hover: darken($sec-color-2, 5%);
+$sec-color-2-press: darken($sec-color-2, 10%);
+$sec-color-2-border: darken($sec-color-2, 10%);
+$sec-color-2-top: lighten($sec-color-2, 50%);
+
+
+// Nav links
+$head-link-bg-hover: lighten($sec-color-2, 20%);
+
+
+$sec-color-3: #FFD100; // yellow
+$sec-color-3-rgb: 255, 209, 0, 1;
+$sec-color-3-hover: darken($sec-color-3, 5%);
+$sec-color-3-press: darken($sec-color-3, 10%);
+$sec-color-3-border: darken($sec-color-3, 10%);
+
+
+$sec-color-4: #D0CFCF; // light gray
+$sec-color-4-rgb: 208, 207, 207, 1;
+
+$light-gray:      #e2e2e2;   // very light gray
+$med-light-gray:  #ccc;
+$med-gray-2:      #e9e9e9;
+$med-gray:        #666;
+$dark-gray:       #444;      // dark gray - nav
+$darker-gray:     #222;      // darker gray - nav
+$x-dark-gray:     #242424; 
+
+
+$fade-bg: rgba(0, 0, 0, 0.3);
+
+
+// Spacing variables
+$spacing-xsm:  0.2em;
+$spacing-sm:   0.5em;
+$spacing-med:  1em;
+$spacing-lrg:  1.5em;
+$spacing-xlrg: 2em;
+$spacing-xxlrg: 2.5em;
+$spacing-xxxlrg: 4.5em;
+
+$sizing-xlrg: 2em;
+$sizing-lrg:   1.5em;
+$size-lrg:   1.5em;
+$size-med:   1em;
+$size-sm:   0.5em;
+
+

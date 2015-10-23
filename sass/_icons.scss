@@ -1,0 +1,133 @@
+@font-face {
+	font-family: 'progressive';
+	src:url('fonts/progressive.eot?-4o2l5');
+	src:url('fonts/progressive.eot?#iefix-4o2l5') format('embedded-opentype'),
+		url('fonts/progressive.woff?-4o2l5') format('woff'),
+		url('fonts/progressive.ttf?-4o2l5') format('truetype'),
+		url('fonts/progressive.svg?-4o2l5#progressive') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'progressive';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-close-thin:before {
+	content: "\e603";
+}
+
+.icon-calendar:before {
+	content: "\e602";
+}
+
+.icon-undo:before {
+	content: "\e600";
+}
+
+.icon-redo:before {
+	content: "\e601";
+}
+
+.icon-target:before {
+	content: "\e012";
+}
+
+.icon-print:before {
+	content: "\e020";
+}
+
+.icon-remove:before {
+	content: "\e039";
+}
+
+.icon-add:before {
+	content: "\e03a";
+}
+
+.icon-circle-plus:before {
+	content: "\e040";
+}
+
+.icon-circle-minus:before {
+	content: "\e041";
+}
+
+.icon-circle-check:before {
+	content: "\e042";
+}
+
+.icon-circle-cross:before {
+	content: "\e043";
+}
+
+.icon-square-plus:before {
+	content: "\e044";
+}
+
+.icon-square-minus:before {
+	content: "\e045";
+}
+
+.icon-square-check:before {
+	content: "\e046";
+}
+
+.icon-square-cross:before {
+	content: "\e047";
+}
+
+.icon-stop:before {
+	content: "\e054";
+}
+
+.icon-head:before {
+	content: "\e074";
+}
+
+.icon-move-left:before {
+	content: "\e094";
+}
+
+.icon-move-right:before {
+	content: "\e095";
+}
+
+.icon-move-up:before {
+	content: "\e096";
+}
+
+.icon-move-down:before {
+	content: "\e097";
+}
+
+.icon-plus:before {
+	content: "\e114";
+}
+
+.icon-minus:before {
+	content: "\e115";
+}
+
+.icon-check:before {
+	content: "\e116";
+}
+
+.icon-close:before {
+	content: "\e117";
+}
+
+.icon-drag:before {
+	content: "\e118";
+}
+

@@ -1,0 +1,135 @@
+.load-wrap {
+  display: block;
+  height: 100px;
+  width: 100px; 
+  left: 50%;
+  margin-left: -50px;
+  top: 50%;
+  margin-top: -50px;
+  position: relative;
+  .loading {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    padding: $size-sm;
+    vertical-align: middle;
+    text-align: center;
+    background-color: transparent;
+    border: 5px solid transparent;
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+    border-radius: 50%;
+  }
+}
+
+.overlay {
+  @include alpha-color(rgba(0, 0, 0, 0.8), background-color);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: middle;
+  }
+
+.overlay-content {
+  @include px-and-rem(height, 25);
+  @include px-and-rem(width, 45);
+  // background: white;
+  display: block;
+  margin: 3rem auto;
+  overflow: visible;
+  position: relative;
+  z-index: 20; 
+  section {
+    width: 100%;
+    margin: 0;
+    h1 {
+      @include px-and-rem(padding, $spacing-med, 0, $spacing-med, 0);
+      @include px-and-rem(margin-bottom, $spacing-sm);
+      @include px-and-rem(font-size, $sizing-xlrg);
+      border-bottom: 1px solid #f2f2f2;
+      color: #f2f2f2;
+      text-align: left;
+    }
+    .message {
+      @include px-and-rem(line-height, 1.5);
+      color: #f2f2f2;
+    }
+
+  } // section
+  span.close-overlay {
+    @include border-radius(25px);
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 50px;
+    margin-top: -15px;
+    width: 50px;
+    i {
+      color: white;
+      font-size: 42px;
+      padding: 9px 0 0 9px;
+      position: absolute;
+    }
+  }
+ } // END overlay-content
+
+ .result-negative {
+  @extend .overlay-content;
+  //border: 3px solid $sec-color-1;
+  section { h1 {  color: $sec-color-1; i { font-size: 30px; } } } 
+ // span.close-overlay { background-color: $sec-color-1; }
+}
+.result-positive {
+  @extend .overlay-content;
+ // border: 3px solid $pri-color-1;
+ section { h1 {  color: $pri-color-1; i { font-size: 30px; } } } 
+ // span.close-overlay { background-color: $pri-color-1; }
+}
+.result-neutral {
+  @extend .overlay-content;
+ // border: 3px solid $sec-color-2;
+ section { h1 {  color: white; span { @include px-and-rem(margin-left, 1.2); } i { font-size: 30px; } } } 
+ // span.close-overlay { background-color: $sec-color-2; }
+}
+
+.save-search-input {
+  @include px-and-rem(font-size, 2);
+  @include px-and-rem(margin-top, 4);
+  @include px-and-rem(padding, 1.8, 2, 2, 2);
+  @include border-radius(50px);
+  @include alpha-color(rgba(255, 255, 255, .7), background-color);
+  border: 0;
+  color: #444;
+  outline: 0;
+  width: 100%;
+}
+
+.saved-search-list {
+    li {
+      @include px-and-rem(padding, 1);
+      @include transition-property(background-color);
+      @include transition-duration(.2s);
+      @include px-and-rem(margin-left, 2); 
+      list-style: decimal;
+      color: #ccc;
+      &:hover {
+        @include alpha-color(rgba(0, 0, 0, .7), background-color);
+        color: #ccc;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+
+.dialog-button-holder {
+  @include px-and-rem(margin-top, 2);
+  @include px-and-rem(bottom, 1);
+  @include px-and-rem(right, 1);
+  position: absolute;
+}

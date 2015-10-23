@@ -1,0 +1,177 @@
+
+[draggable=true] { cursor: move; }
+
+// TODO: rename animation
+@-webkit-keyframes new-activity-anim {
+  0%, 100% { background-color: $light-gray;}
+  50% { background-color: $pri-color-1;}
+}
+@-moz-keyframes new-activity-anim {
+  0%, 100% {background-color: $light-gray;}
+  50% {   background-color: $pri-color-1;}
+}
+@-o-keyframes new-activity-anim {
+  0%, 100% {   background-color: $light-gray;}
+  50% {    background-color: $pri-color-1;}
+}
+@keyframes new-activity-anim {
+  0%, 100% {   background-color: $light-gray;}
+  50% {    background-color: $pri-color-1;}
+}
+
+.activity {
+	-webkit-animation: new-activity-anim 1s 0 1 none;
+	-moz-animation: new-activity-anim 1s 0 1 none;
+	-o-animation: new-activity-anim 1s 0 1 none;
+	animation: new-activity-anim 1s 0 1 none;
+	display: block;
+}
+
+// Add filters buttons
+.drag-filters {
+	@include transition-property(background-color);
+	@include transition-timing-function(ease-in-out);
+	@include transition-duration(.2s); 
+	@include px-and-rem(font-size, .75);
+	@include px-and-rem(padding, .2, .4, 1, .6);
+	border-bottom: 1px solid #008abf;
+	background-color: $sec-color-2;
+	border-radius: 0;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: normal;
+	height: 25px;
+	line-height: normal;
+	overflow: hidden;
+	position: relative;
+	text-align: left;
+	width: 100%;
+	&:last-child { border-bottom: 0; }
+	span {
+		position: absolute;
+		margin-left: 15px;
+	}
+	i {
+		position: absolute;
+ }
+}
+
+// dnd css from http://farhadi.ir/projects/html5sortable/
+.sortable {
+	margin: auto;
+	padding: 0;
+	width: 100%;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.sortable.grid {
+	// overflow: hidden;
+}
+.sortable li {
+	list-style: none;
+	border: 1px solid $dark-gray;
+	margin: 0 10px 0 0;
+}
+li.disabled { opacity: 0.5; }
+.sortable.grid li {
+	@include px-and-rem(height, 6.2);
+	@include px-and-rem(width, 11);
+	float: left;
+	text-align: center;
+}
+// li.highlight { background: #FEE25F; }
+li.sortable-placeholder {
+	border: 1px dashed #CCC;
+	background: none;
+	min-width: 80px;
+}
+
+
+.day-off-container, .type-container, .start-container, .end-container {
+	@include px-and-rem(padding, .3);
+	background-color: $dark-gray;
+	display: none;
+	height: 100%;
+	text-align: left;
+	.filter-head {
+		@include px-and-rem(height, 1.3);
+		@include px-and-rem(font-size, .9);
+		width: 160px;
+	}
+	.day-add, .type-add, .start-add, .end-add {
+		color: #ccc;
+		cursor: pointer;
+		display: inline-block;
+		float: left;
+		width: 10%;
+	}
+	.filter-title {
+		color: $med-gray-2;
+		cursor: move;
+		display: inline-block;
+		float: left;
+		text-align: left;
+		width: 80%;
+		padding-left: 5px;
+	}
+	.remove-filter {
+		cursor: pointer;
+		display: inline-block;
+		float: left;
+		text-align: right;
+		width: 10%; 
+	}
+	.the-day, .the-type { display:none; }
+	.the-day, .the-type, .the-start, .the-end {
+		@include px-and-rem(padding, .5);
+		@include px-and-rem(height, 1.7);
+		@include px-and-rem(width, 3.3);
+		background: #ccc;
+		color: #444;
+		cursor: default;
+		float: left;
+		margin: 0 2px 1px 0;
+		position: relative;
+		.day-name, .type-name, , .start-name, .end-name { 
+			@include px-and-rem(font-size, .7);
+			@include px-and-rem(width, 1.5);
+			float: left;
+		}
+		.day-remove, .type-remove, .start-remove, .end-remove { 
+			@include px-and-rem(font-size, .7);
+			cursor: pointer;
+			float: right;
+		}
+		&:hover { background-color: #d2d2d2; border-color: #ddd; .day-remove, .type-remove, .start-remove, .end-remove  { color: $sec-color-1; } }
+	}
+	
+
+	// Overrides
+
+	// Timepicker
+	.the-start, .the-end {
+		width: 99.5%;
+		input {
+			@include px-and-rem(font-size, .7);
+			background: transparent;
+			border: 0;
+			margin-top: -2px;
+			position: absolute;
+			width: 133px;
+		}
+	}
+	// Half width choices
+	.the-type {
+		width: 80px !important;
+		.type-name {
+			width: 50px;
+		}
+	}
+	// END Overrides
+
+}  // END - Day Off Styles

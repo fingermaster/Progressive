@@ -1,0 +1,31 @@
+/*Reset Style*/
+body {margin:0; padding:0; line-height: 1.4em; word-spacing:1px; letter-spacing:0.2px; font: 13px Arial, Helvetica,"Lucida Grande", serif; color: #000;}
+
+.page {
+	width: 850px;
+	margin: 2rem auto;
+	color: #333;
+	table {
+		border: 1px solid #ddd;
+		padding: .3rem;
+		width: 100%;
+		margin: 0;
+		border-collapse: collapse;
+		th {
+			background-color: #ddd;
+			text-align: left;
+			padding: .8rem;
+		}
+		tr {
+			border-bottom: 1px solid #ddd;
+			padding: .8rem;
+			&:nth-child(even){
+				background-color: #f2f2f2; 
+			}
+		}
+		td {
+			padding: .8rem;
+			margin: 0;
+		}
+	}
+}

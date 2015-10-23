@@ -1,0 +1,124 @@
+
+
+/*
+THE HTML AND JS CALLS - BACKUP ONLY
+
+ <div class="filter-container">
+    <div class="filter-head">
+        <span class="add-day"><i class="icon-square-plus"></i></span>
+        <span class="filter-title">Days Off &nbsp; &nbsp; <i class="icon-drag"></i></span>
+        <span class="pull-rt remove-filter"><i class="icon-square-cross"></i></span>
+    </div>
+    <div class="day-holder">
+        <div class="the-day">
+            <span class="day-name">Mon</span>
+            <span class="day-remove"><i class="icon-close"></i></span>
+        </div>
+        <div class="the-day">
+            <span class="day-name">Tue</span>
+            <span class="day-remove"><i class="icon-close"></i></span>
+        </div>
+        <div class="the-day">
+            <span class="day-name">Fri</span>
+            <span class="day-remove"><i class="icon-close"></i></span>
+        </div>
+        <div class="the-day">
+            <span class="day-name">Sat</span>
+            <span class="day-remove"><i class="icon-close"></i></span>
+        </div>
+    </div>
+</div> 
+<div id="cart">
+<div class="temp-target">
+    <i class="icon-target"></i>
+    <h2>Drop filter</h2>
+</div>
+ <div></div> 
+<p id="total">Total: $<span>0.00</span></p>
+<span id="filter-block"></span>
+</div> 
+
+<script src="js/dragndrop/dragdrop.js"></script>
+<script src="js/dragndrop/jquery.ndd.js"></script>
+*/
+
+#products { list-style: none; }
+.drag-filters {
+  border-width: 0;
+  cursor: pointer;
+  font-weight: normal;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  border-radius: 0;
+  display: inline-block;
+  background-color: $sec-color-2;
+  color: #fff;
+  @include transition-property(background-color);
+  @include transition-timing-function(ease-in-out);
+  @include transition-duration(.2s); 
+  @include px-and-rem(font-size, .6875);
+  @include px-and-rem(padding, .2, .4, .2, .4);
+  text-align: left;
+  width: 100%;
+  height: 28px;
+  overflow: hidden;
+  &:hover { background-color: $pri-color-1; }
+  p { 
+    display: inline-block;
+    margin:5px; 
+  }
+}
+
+.filter1 {
+	color: #000;
+	display: inline-block;
+	width: 100px;
+	height: 85px;
+	background-color: $light-gray;
+	margin-right: 5px;
+	padding: 3px;
+}
+
+.temp-target {
+	float: right;
+	font-size: 50px;
+	padding: 15px 0 0 0;
+	text-align: center;
+	width: 80px;
+	i {
+		font-size: 50px;
+	}
+	h2 {
+		display: none;
+		font-size: 11px;
+		margin-top: -3px;
+		position: relative;
+	}
+}
+
+#cart {
+	float: left;
+	background-color: $dark-gray;
+	width: 100%;
+	height: 85px;
+}
+#cart .quantity {
+	font-weight: bold;
+	position: relative;
+	padding-right: 10px;
+	margin-right: 10px;
+	display: inline-block;
+	width: 15px;
+	text-align: right;
+}
+#cart .price {
+	// float:right;
+}
+#total {
+	display: none;
+	font-size: 10px;
+	position: absolute;
+	left: 698px;
+	top: 78px;
+}

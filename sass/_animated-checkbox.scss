@@ -1,0 +1,115 @@
+
+// --------------------------------------------------------
+// Styles for schedule "throwing" animations 
+// --------------------------------------------------------
+.rotateIcon { @include animation(rotateIcon 0.8s); }
+// .ranked 
+
+
+
+
+.ranked, .all-schedules, .filtered { tr { 
+  td {  i.icon-move-up, i.icon-move-down {
+    display: inline-block;
+    height: 20px;
+    margin: 0;
+    text-align: center;
+    width: 20px;
+    &:hover { 
+      cursor: pointer; 
+      color: $sec-color-2; 
+      } } } 
+  td:last-child { cursor: pointer; &:hover {
+    i.icon-move-right { 
+      color: $sec-color-2;
+      margin-left: 10px; 
+  } } } } }
+
+  .ranked {
+   tr { 
+    td:last-child {
+      cursor: pointer;
+      i.icon-move-right {
+        margin-left: 10px;
+        float: left;
+      }
+      &:hover {
+        i.icon-move-right { 
+          @include transform(rotate(180deg)); 
+          color: $sec-color-2;
+          margin-left: 0px; 
+          } 
+
+  } } } }
+
+
+
+.icon-move-right {
+  margin-left: 0;
+  @include transition-property(margin-left);
+  @include transition-duration(.5s);
+}
+
+// --------------------------------------------------------
+// --------------------------------------------------------
+// --------------------------------------------------------
+// Styles for animate checkboxes (days of week) 
+// --------------------------------------------------------
+// For centering things horizontally and vertically
+.wrapper {
+  @include transform(translate(-50%, -50%));
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+}
+
+// Create the backgrounds for the checkboxes
+.checkbox {
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  
+  // This label functions as actual clickable area, because the default checkbox is rubbish
+  label {
+    @include px-and-rem(font-size, 1.7);
+    @include px-and-rem(width, 8);
+    @include px-and-rem(height, 8);
+    display: block;
+    cursor: pointer;
+    margin: -10px 0 0 -10px;
+    padding-top: 14px;
+    position: relative;
+    // This is the pseudo-element for the check mark
+    &:after {
+      /* This element has a border on the right, and top. By rotating it 
+      looks like a check symbol, but the wrong way. That's why I'm flipping it with scaleX(-1)*/
+      @include transform(scaleX(-1) rotate(180deg + -45deg));    
+      /* I want to position the symbol using the left top, because when increasing the width 
+      and height of an object, it expands from the top left corner as well. That is what makes it looks like it's being drawn. */
+      @include transform-origin(left, top);
+      // The borders
+      border-right: 5px solid #5e5e5e;
+      border-top: 5px solid #5e5e5e;
+      // Positioning and stuff
+      content: '';
+      display: block;
+      height: 27px;
+      left: 50px;
+      position: absolute;
+      top: 75px;
+      width: 15px;
+      
+    }
+  }
+  
+  // Hide the input!
+  input { display: none; }
+  
+  // When the input is checked (by clicking the label), I wan't the animation to run and the colour to change.
+  input:checked + label:after {
+    @include animation(check 0.8s);
+    border-color: $pri-color-1;
+  }
+  
+}

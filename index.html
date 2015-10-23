@@ -1,0 +1,504 @@
+<!--[]-->
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Progressive</title>
+    <meta name="description" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/footable.core.css" rel="stylesheet" type="text/css"/>
+    <link href="css/footable.metro.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
+</head>
+<body>
+ 
+<div id="pageWrapper">
+        <header>
+            <div class="wrap">
+                <section class="head-block-1">
+                    <h1>Peter Dillon</h1>
+                </section>
+                <section class="head-block-2">
+                    <div class="rank-container">
+                        <div class="rank-title">RANK</div>
+                        <div class="rank-number">50</div>
+                    </div>
+                </section>
+                <section class="head-block-3">
+                    <div class="top-menu">
+                        <a href="#">Web Based Traning</a>
+                        <a href="#">Job Aid</a>
+                    </div>
+                </section>
+                 <section class="head-block-4">
+                    <div class="print-container">
+                        <button href="#" data-options="align:left" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown med-icon"> <i class="icon-print"></i> Print</button>
+                        <br>
+                        <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1" aria-autoclose="false">
+                          <li class="openPrintable"><a href="#">Filtered Results</a></li>
+                          <li class="openPrintable"><a href="#">Ranked Schedules</a></li>
+                          <li class="openPrintable"><a href="#">All Schedules</a></li>
+                        </ul> 
+                    </div>
+                </section>
+                
+            </div>
+        </header>
+
+
+
+<div class="overlay day-add-dialog" style="display:none">
+<div class="overlay-content result-neutral">
+    <span class="close-overlay"><i class="icon-close-thin"></i></span>
+    <section>
+        <h1><span>Days Off</span></h1>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-mon" name="opt-mon" />
+                <label for="opt-mon">Mon</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-tue" name="opt-tue" />
+                <label for="opt-tue">Tue</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-wed" name="opt-wed" />
+                <label for="opt-wed">Wed</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-thu" name="opt-thu" />
+                <label for="opt-thu">Thu</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-fri" name="opt-fri" />
+                <label for="opt-fri">Fri</label>
+            </div>
+            <br>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-sat" name="opt-sat" />
+                <label for="opt-sat">Sat</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-sun" name="opt-sun" />
+                <label for="opt-sun">Sun</label>
+            </div>
+            <div class="dialog-button-holder">
+                <button class="alert med-icon" id="close-days-off"><i class="icon-close"></i> Cancel</button>
+                <button class="success med-icon" id="save-days-off"><i class="icon-check"></i> Save</button>
+            </div>
+    </section>
+</div>
+</div> 
+
+<div class="overlay type-add-dialog" style="display:none">
+<div class="overlay-content result-neutral">
+    <span class="close-overlay"><i class="icon-close-thin"></i></span>
+    <section>
+        <h1><span>Choose Type</span></h1>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-4x9" name="opt-4x9" />
+                <label for="opt-4x9">4x9+4</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-Spl" name="opt-Spl" />
+                <label for="opt-Spl">Split</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-5x8" name="opt-5x8" />
+                <label for="opt-5x8">5x8</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="opt-3x1" name="opt-3x1" />
+                <label for="opt-3x1">3x12</label>
+            </div>
+            <div class="dialog-button-holder">
+                <button class="alert med-icon" id="close-type"><i class="icon-close"></i> Cancel</button>
+                <button class="success med-icon" id="save-type"><i class="icon-check"></i> Save</button>
+            </div>
+    </section>
+</div>
+</div> 
+
+
+        <nav>
+            <div class="wrap">
+                <section class="drag-block-1">
+                    <ul class="sortable grid">
+                        <li>
+                            <!-- id="sortable-with-handles" <span class="handle">::</span> -->
+                            <div class="day-off-container">
+                                <div class="filter-head">
+                                    <span class="day-add"><i class="icon-plus"></i></span>    
+                                    <span class="filter-title">Days Off</span>
+                                    <span class="pull-rt remove-filter"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-day" id="opt-sun-on">
+                                    <span class="day-name">Sun</span>
+                                    <span class="day-remove"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-day" id="opt-mon-on">
+                                    <span class="day-name">Mon</span>
+                                    <span class="day-remove"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-day" id="opt-tue-on">
+                                    <span class="day-name">Tue</span>
+                                    <span class="day-remove"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-day" id="opt-wed-on">
+                                    <span class="day-name">Wed</span>
+                                    <span class="day-remove"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-day" id="opt-thu-on">
+                                    <span class="day-name">Thu</span>
+                                    <span class="day-remove"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-day" id="opt-fri-on">
+                                    <span class="day-name">Fri</span>
+                                    <span class="day-remove"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-day" id="opt-sat-on">
+                                    <span class="day-name">Sat</span>
+                                    <span class="day-remove"><i class="icon-close"></i></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="type-container">
+                                <div class="filter-head">
+                                    <span class="type-add"><i class="icon-plus"></i></span>
+                                    <span class="filter-title">Type</span>
+                                    <span class="pull-rt remove-filter"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-type" id="opt-4x9-on">
+                                    <span class="type-name">4x9+4</span>
+                                    <span class="type-remove"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-type" id="opt-Spl-on">
+                                    <span class="type-name">Split</span>
+                                    <span class="type-remove"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-type" id="opt-5x8-on">
+                                    <span class="type-name">5x8</span>
+                                    <span class="type-remove"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-type" id="opt-3x1-on">
+                                    <span class="type-name">3x12</span>
+                                    <span class="type-remove"><i class="icon-close"></i></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="start-container">
+                                <div class="filter-head">
+                                    <span class="start-add"><i class="icon-plus"></i></span>
+                                    <span class="filter-title">Start</span>
+                                    <span class="pull-rt remove-filter"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-start">
+                                    <input id="start-time" type="text" placeholder="Choose Time" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="end-container">
+                                <div class="filter-head">
+                                    <span class="end-add"><i class="icon-plus"></i></span>
+                                    <span class="filter-title">End</span>
+                                    <span class="pull-rt remove-filter"><i class="icon-close"></i></span>
+                                </div>
+                                <div class="the-end">
+                                    <input id="end-time" type="text" placeholder="Choose Time" />
+                            </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section class="drag-block-2">
+                    <button class="drag-filters" id="add-day-off"><i class="icon-plus"></i> <span>Days Off</span></button>
+                    <button class="drag-filters" id="add-type"><i class="icon-plus"></i> <span>Type</span></button>
+                    <button class="drag-filters" id="add-start"><i class="icon-plus"></i> <span>Start</span></button>
+                    <button class="drag-filters" id="add-end"><i class="icon-plus"></i> <span>End</span></button>
+                </section>
+
+                <section class="drag-block-3"><button class="success large-icon" title="Filter Schedules"><i class="icon-check"></i></button></section>
+
+                <section class="drag-block-4 drag-menu">
+                    <a href="#" id="reset-all">Reset All Filters</a>
+                    <a href="#" id="save-search">Save This Search</a>
+                    <a href="#" id="saved-searches">View Saved Searches</a>
+                </section>
+            </div>
+        </nav>
+   
+           <article>
+           <h1>Filtered Results</h1>
+            <table class="footable td-pad filtered" data-page-size="13">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>DOW</th>
+                    <th>Open</th>
+                    <th data-sort-ignore="true">Pref</th>
+                    <th data-sort-ignore="true">Move</th>
+                    <th data-sort-ignore="true">Rank</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr class="filtered-row">
+                        <td>CL1_128</td>
+                        <td>4x9+4</td>
+                        <td>9:00 am</td>
+                        <td>5:00 pm</td>
+                        <td>MTWSY</td>
+                        <td>10</td>
+                        <td><input type="text" class="preference-no-edit" value="0" maxlength="3" disabled></td>
+                        <td><i class="icon-move-up"></i><i class="icon-move-down"></i></td>
+                        <td><i class="icon-move-right"></i></td>
+                    </tr>
+                    <tr class="filtered-row">
+                        <td>CL1_129</td>
+                        <td>Split</td>
+                        <td>9:00 am</td>
+                        <td>5:00 pm</td>
+                        <td>TWRFY</td>
+                        <td>3</td>
+                        <td><input type="text" class="preference-no-edit" value="0" maxlength="3" disabled></td>
+                        <td><i class="icon-move-up"></i><i class="icon-move-down"></i></td>
+                        <td><i class="icon-move-right"></i></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="9">
+                        <div class="pagination pagination-centered"></div>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+
+
+            <h1>All Other Schedules</h1>
+            <table class="footable td-pad all-schedules" data-page-size="13">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>DOW</th>
+                    <th>Open</th>
+                    <th data-sort-ignore="true">Pref</th>
+                    <th data-sort-ignore="true">Move</th>
+                    <th data-sort-ignore="true">Rank</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr class="all-row">
+                        <td>CL1_130</td>
+                        <td>4x10</td>
+                        <td>9:00 am</td>
+                        <td>5:00 pm</td>
+                        <td>SMTWF</td>
+                        <td>2</td>
+                        <td><input type="text" class="preference-no-edit" value="0" maxlength="3" disabled></td>
+                        <td><i class="icon-move-up"></i><i class="icon-move-down"></i></td>
+                        <td><i class="icon-move-right"></i></td>
+                    </tr>
+                    <tr class="all-row">
+                        <td>CL1_131</td>
+                        <td>5x8</td>
+                        <td>9:00 am</td>
+                        <td>5:00 pm</td>
+                        <td>MWRFY</td>
+                        <td>6</td>
+                        <td><input type="text" class="preference-no-edit" value="0" maxlength="3" disabled></td>
+                        <td><i class="icon-move-up"></i><i class="icon-move-down"></i></td>
+                        <td><i class="icon-move-right"></i></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="9">
+                        <div class="pagination pagination-centered"></div>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+
+    </article>
+
+
+    <article>
+            <div class="ranked-head">
+                <section class="block-1">
+                    <h1>Ranked Schedules</h1>
+                </section>
+                <section class="block-2">>
+                    <div class="rank-container-sm">
+                        <div class="rank-number">47</div>
+                    </div>
+                </section>
+                <section class="block-3">Left to rank</section>
+                <section class="block-4">
+                    <button class="x-small" title="Undo"><i class="icon-undo"></i></button>
+                    <button class="x-small" title="Redo"><i class="icon-redo"></i></button>
+                    <button class="x-small alert" id="clear-results"><i class="icon-close"></i> Clear</button>
+                    <button class="x-small success" id="save-results"><i class="icon-check"></i> Save</button>
+                </section>
+            </div>
+            <table class="footable td-pad ranked" data-page-size="13">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>DOW</th>
+                    <th>Open</th>
+                    <th data-sort-ignore="true">Pref</th>
+                    <th data-sort-ignore="true">Move</th>
+                    <th data-sort-ignore="true">Remove</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr class="filtered-row">
+                        <td>CL1_132</td>
+                        <td>4x9+4</td>
+                        <td>9:00 am</td>
+                        <td>5:00 pm</td>
+                        <td>MTFY</td>
+                        <td>5</td>
+                        <td><input type="text" class="preference" value="0" maxlength="3"></td>
+                        <td><i class="icon-move-up"></i><i class="icon-move-down"></i></td>
+                        <td><i class="icon-move-right"></i></td>
+                    </tr>
+                    <tr class="all-row">
+                        <td>CL1_133</td>
+                        <td>Split</td>
+                        <td>9:00 am</td>
+                        <td>5:00 pm</td>
+                        <td>SMRF</td>
+                        <td>1</td>
+                        <td><input type="text" class="preference" value="0" maxlength="3"></td>
+                        <td><i class="icon-move-up"></i><i class="icon-move-down"></i></td>
+                        <td><i class="icon-move-right"></i></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="9">
+                        <div class="pagination pagination-centered"></div>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+    </article> 
+    <footer>
+        <div class="wrap">
+            <small>&copy;2015 Powered by Aspect Software</small>
+        </div>
+    </footer>
+</div><!-- END pageWrapper -->
+
+<div class="overlay">
+ <div class="load-wrap">
+  <div class="loading">
+    <div class="loading"></div>
+  </div>
+  </div>
+</div>
+
+<div class="overlay save-search-dialog" style="display:none">
+<div class="overlay-content result-neutral">
+    <span class="close-overlay"><i class="icon-close-thin"></i>
+    </span>
+    <section>
+        <h1>Save This Search</h1>
+        <input type="text" class="save-search-input" placeholder="Name">
+        <div class="dialog-button-holder">
+            <button class="save med-icon" id="save-days-off"><i class="icon-check"></i> Save</button>
+        </div>
+    </section>
+</div>
+</div>
+
+<div class="overlay saved-search-list-dialog" style="display:none">
+<div class="overlay-content result-neutral">
+    <span class="close-overlay"><i class="icon-close-thin"></i>
+    </span>
+    <section>
+        <h1>Saved Searches</h1>
+        <ul class="saved-search-list">
+            <li>My saved search</li>
+            <li>My saved search</li>
+            <li>My saved search</li>
+        </ul>
+        
+    </section>
+</div>
+</div>
+
+<div class="overlay save-results-dialog" style="display:none">
+<div class="overlay-content result-positive">
+    <span class="close-overlay"><i class="icon-close-thin"></i>
+    </span>
+    <section>
+        <h1><i class="icon-circle-check"></i> <span>Saved!</span></h1>
+        <p class="message">You have <span class="rank-num-overlay">47</span> schedules left to rank. </p>
+        <div class="dialog-button-holder">
+            <button class="info med-icon" id="save-days-off"><i class="icon-check"></i> Continue</button>
+            <button class="secondary med-icon disabled" id="save-days-off"><i class="icon-check"></i> Submit</button>
+        </div>
+    </section>
+</div>
+</div> 
+
+<div class="overlay clear-results-dialog" style="display:none">
+<div class="overlay-content result-negative">
+    <span class="close-overlay"><i class="icon-close-thin"></i>
+    </span>
+    <section>
+        <h1><i class="icon-circle-cross"></i> <span>You are clearing all schedules!</span></h1>
+        <p class="message">Nulla nisl ligula, luctus a semper et, facilisis quis magna. Quisque faucibus velit urna, id lobortis quam sodales vel. Donec tincidunt dignissim ex, vel bibendum purus aliquam rutrum. Morbi lacus massa, blandit eget justo ut, volutpat lobortis nisl. Vivamus sodales leo odio, sit amet bibendum massa porttitor id. Proin id ligula pharetra, tempor massa a, consequat magna. Integer volutpat magna ligula, eget tincidunt nisi suscipit ut. Maecenas sodales sollicitudin nisi ut ullamcorper</p>
+        <div class="dialog-button-holder">
+            <button class="alert med-icon" id="close-days-off"><i class="icon-close"></i> Cancel</button>
+            <button class="success med-icon" id="close-days-off"><i class="icon-check"></i> Okay Clear All</button>
+        </div>
+    </section>
+</div>
+</div>
+
+<script src="js/modernizr/modernizr-latest.js"></script>
+<script src="js/jquery/jquery-2.1.1.min.js"></script>
+<script src="js/velocity/velocity.min.js"></script>
+<script src="js/velocity/velocity.ui.js"></script>
+<script src="js/custom-methods.js"></script>
+<script src="js/footable/footable.js"></script>
+<script src="js/footable/footable.sort.js"></script>
+<script src="js/footable/footable.paginate.js"></script>
+<script src="js/foundation/foundation.js"></script>
+<script src="js/foundation/foundation.dropdown.js"></script>
+<script src="js/dragndrop/jquery.sortable.js"></script>
+<script src="js/timepicker/jquery.timepicker.min.js"></script>
+
+<script>
+    $(function() {
+        $('.sortable').sortable();
+        $('#start-time').timepicker();
+        $('#end-time').timepicker();
+    });
+    $(document).foundation();
+</script>
+</body>
+</html>
