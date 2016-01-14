@@ -232,8 +232,8 @@
 
                 <section class="drag-block-4 drag-menu">
                     <a href="#" id="reset-all">Reset All Filters</a>
-                    <a href="#" id="save-search">Save This Search</a>
-                    <a href="#" id="saved-searches">View Saved Searches</a>
+                    <a href="#" id="open-save-search">Save This Search</a>
+                    <a href="#" id="open-saved-searches">View Saved Searches</a>
                 </section>
             </div>
         </nav>
@@ -427,7 +427,7 @@
         <h1>Save This Search</h1>
         <input type="text" class="save-search-input" placeholder="Name">
         <div class="dialog-button-holder">
-            <button class="save med-icon" id="save-days-off"><i class="icon-check"></i> Save</button>
+            <button class="save med-icon" id="save-search"><i class="icon-check"></i> Save</button>
         </div>
     </section>
 </div>
@@ -435,16 +435,11 @@
 
 <div class="overlay saved-search-list-dialog" style="display:none">
 <div class="overlay-content result-neutral">
-    <span class="close-overlay"><i class="icon-close-thin"></i>
+    <span class="close-overlay" id="clear-list"><i class="icon-close-thin"></i>
     </span>
     <section>
         <h1>Saved Searches</h1>
-        <ul class="saved-search-list">
-            <li>My saved search</li>
-            <li>My saved search</li>
-            <li>My saved search</li>
-        </ul>
-        
+        <ul class="saved-search-list" id="saved-searches"></ul>
     </section>
 </div>
 </div>

@@ -1,11 +1,34 @@
 
 
 
+// Local Storage
+$("#save-search").on("click", function() {
+    var i = window.localStorage.length;
+    var val = $(".save-search-input").val();
+    var storeName = "searchItem" + [i++];
+    localStorage.setItem(storeName, val);
+});
+
+$("#open-saved-searches").on("click", function() { 
+  $(".saved-search-list-dialog").velocity("fadeIn", { duration: 500 });
+  $(".result-neutral").velocity("transition.bounceIn", 500);
+  if (!window.localStorage.length) { $("#saved-searches").append("<li>No searches stored.</li>");}  
+  for (var i = 0; i < localStorage.length; i++){
+        ct = localStorage.getItem('searchItem'+[i]);
+        $("#saved-searches").append("<li>" + ct + "</li>");
+ }
+});
+$("#clear-list").on("click", function() {
+  $("#saved-searches").html("");
+});
+
+
 
 // Move rows to and from schedule tables
-
-
 $(document).ready(function() {
+
+    clearLoader();
+
     $(".filtered tbody").on("click","tr.filtered-row td:last-child", function() {
       var tr = $(this).closest("tr").velocity("transition.slideLeftOut", 750).remove().clone();
       $(tr).appendTo(".ranked tbody").velocity("transition.slideLeftIn", 750);
@@ -35,42 +58,6 @@ $(".openPrintable").click(function(){
   return false;
 });
 
-
-// $(".filtered tr").click(function () {
-// var insertPoint = $(".ranked-row").children("tbody");
-// var num = 
-//  $("<tr />", {
-//             'html': "<td>Name</td> \
-//                     <td>Type</td> \
-//                     <td>9:00 am</td> \
-//                     <td>5:00 pm</td> \
-//                     <td>DOW</td> \
-//                     <td><i class='icon-move-left'></i><i class='icon-move-down'></i><i class='icon-move-up'></i></td> \
-//                     <td><select><option>1</option><option>2</option><option>3</option></select></td>"
-//         }).appendTo(insertPoint).velocity("fadeIn", { display: "table-row" });
-// });
-
-// $("body").on('click', ".ot-remove", function () {
-//   $(this).parents(".new-item").slideToggle();   
-// });
-
-
-
-// $(".shift-row").hover().addClass("i.icon-anim");
-// $('tr').hover(
-//     function() {
-//         $('i', this).toggleClass('icon-anim');
-//     });
-
-
-// function add_alert() {
-//  $(".add-activity").on("click", function () {
-//     $(".alert-flash").removeClass("activity");
-//     setTimeout( function() {
-//         $(".alert-flash").addClass("activity");
-//       },200);
-//   });
-// }
 
 $(function () { $('table').footable(); });
   
@@ -118,14 +105,14 @@ $("#clear-results").on("click", function () {
     $(".result-negative").velocity("fadeIn");
     $(".result-negative").velocity("callout.shake");
 });
-$("#save-search").on("click", function () {
+$("#open-save-search").on("click", function () {
     $(".save-search-dialog").velocity("fadeIn", { duration: 500 });
     $(".result-neutral").velocity("transition.bounceIn", 500);
 });
-$("#saved-searches").on("click", function () {
-    $(".saved-search-list-dialog").velocity("fadeIn", { duration: 500 });
-    $(".result-neutral").velocity("transition.bounceIn", 500);
-});
+// $("#saved-searches").on("click", function () {
+//     $(".saved-search-list-dialog").velocity("fadeIn", { duration: 500 });
+//     $(".result-neutral").velocity("transition.bounceIn", 500);
+// });
 
 $(".close-overlay").on("click", function () {
   closeAny();
@@ -145,7 +132,7 @@ $("#close-type, #save-type, #close-type, #save-type").on("click", function () {
   // TODO: If #close - clear day choices first
   closeAny();
 });
-$("#close-days-off, #save-days-off").on("click", function () {
+$("#close-days-off, #save-search").on("click", function () {
   // TODO: If #close - clear day choices first
   closeAny();
 });
